@@ -56,11 +56,13 @@ figure;imagesc(xcgls);set(gca,'XTick',[],'YTick',[]);axis square;colormap gray;
 % Write the reconstructed volume in the same path. 
 volname = write_vol(xcgls, pathname, filename, experiment_name, 'single');
 
-% Load and display the corresponding central slice FDK reconstruction
-pathname_recon = fullfile(pathname,[filename,'_RECON2D']); % Location of .vol file with FDK reconstruction.
+% Load and display the FDK reconstruction 
+% FDK reconstruction for each dataset is included in a subfolder ending in "_RECON2D"
+pathname_recon = fullfile(pathname,[filename,'_RECON2D']); % Location of the FDK reconstruction.
 filename_recon = 'SparseBeads';
 experiment_name_recon = beadset;
-voxels = [2000 2000 1]; % Dimensions of FDK reconstruction.
+voxels = [2000 2000 1]; % Dimensions of the reconstructed slice.
 FDK_soln = read_vol(pathname_recon, filename_recon, experiment_name_recon, voxels); % Read volume.
 figure;imagesc(FDK_soln);axis square;axis off;colormap gray; % Display the reconstructed slice.
+
 
