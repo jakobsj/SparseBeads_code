@@ -51,7 +51,7 @@ xcgls = reshape(xcgls,geom.voxels);
 disp('Reconstruction is complete!');
 
 % Display the CGLS reconstruction
-figure;imagesc(xcgls);set(gca,'XTick',[],'YTick',[]);axis square;colormap gray;
+figure;imagesc(xcgls);axis square;axis off;colormap gray;
 
 % Write the reconstructed volume in the same path. 
 volname = write_vol(xcgls, pathname, filename, experiment_name, 'single');
@@ -64,5 +64,3 @@ experiment_name_recon = beadset;
 voxels = [2000 2000 1]; % Dimensions of the reconstructed slice.
 FDK_soln = read_vol(pathname_recon, filename_recon, experiment_name_recon, voxels); % Read volume.
 figure;imagesc(FDK_soln);axis square;axis off;colormap gray; % Display the reconstructed slice.
-
-
