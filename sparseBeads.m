@@ -19,7 +19,7 @@
 
 addpath XTek/ tools/ mex/
 
-% Parameters to specify by user
+%%%% Manually modify these variables %%%%
 beadset = 'B1L1'; % Identifier of dataset
 toppathname = '/media/somefolder/'; % Parent directory to dataset directory e.g. '/media/somefolder/' if this contains e.g. SparseBeads_B1L1/ directory.
 iterations = 12; % Number of CGLS iterations to run
@@ -57,8 +57,7 @@ figure;imagesc(xcgls);axis square;axis off;colormap gray;
 volname = write_vol(xcgls, pathname, filename, experiment_name, 'single');
 
 % Load and display the FDK reconstruction 
-% FDK reconstruction for each dataset is included in a subfolder ending in "_RECON2D"
-pathname_recon = fullfile(pathname,[filename,'_RECON2D']); % Location of the FDK reconstruction.
+pathname_recon = fullfile(pathname,[filename,'_RECON2D']); % FDK reconstruction for each dataset is included in a subfolder ending in "_RECON2D"
 filename_recon = 'SparseBeads';
 experiment_name_recon = beadset;
 voxels = [2000 2000 1]; % Dimensions of the reconstructed slice.
