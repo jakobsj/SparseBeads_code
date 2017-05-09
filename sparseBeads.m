@@ -44,19 +44,19 @@ geom = centre_geom(data, geom); data=data(:);
 geom.image_offset = -(geom.voxels.*geom.voxel_size)/2; % Data is not cut for the sparsebeads 2D recons so we must update the image_offset here.
 disp('Pre-reconstruction stage is complete!');
 
-% Carry out CGLS reconstruction
+% Perform CGLS reconstruction
 fprintf('\nReconstructing the SparseBeads dataset (%s)...\n',geom_type);
 xcgls = cgls_XTek(data, geom, iterations);
 xcgls = reshape(xcgls,geom.voxels);
 disp('Reconstruction is complete!');
 
-% Display the CGLS reconstruction
+% Display the reconstructed slice.
 figure;imagesc(xcgls);axis square;axis off;colormap gray;
 
-% Write the reconstructed volume in the same path. 
+% Write the reconstructed slice in the same path. 
 volname = write_vol(xcgls, pathname, filename, experiment_name, 'single');
 
-% Load and display the FDK reconstruction 
+% Load and display the FDK slice 
 pathname_recon = fullfile(pathname,[filename,'_RECON2D']); % FDK reconstruction for each dataset is included in a subfolder ending in "_RECON2D"
 filename_recon = 'SparseBeads';
 experiment_name_recon = beadset;
