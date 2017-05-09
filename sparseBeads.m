@@ -28,7 +28,7 @@ iterations = 12; % Number of CGLS iterations to run
 filename = sprintf('SparseBeads_%s',beadset); % Name of the dataset e.g. 'SparseBeads_B1L1'
 pathname = fullfile(toppathname,filename); % Name of path where the dataset is stored e.g. '/media/somefolder/SparseBeads_B1L1/'.
 geom_type = '2D'; % Necessary for loading data. Type can only be '2D' for SparseBeads.
-experiment_name = sprintf('CGLS_%s',beadset); % For naming purposes... Change to any relevant experiment name or code.
+experiment_name = 'CGLS_Demo'; % For naming purposes... Change to any relevant experiment name or code.
 
 %%%% ------------------------------- %%%%
 
