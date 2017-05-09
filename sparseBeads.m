@@ -20,12 +20,12 @@
 addpath XTek/ tools/ mex/
 
 %%%% Manually modify these variables %%%%
-beadset = 'B1L1'; % Identifier of dataset
+beadset = 'B1L1'; % SparseBeads dataset identifier.
 toppathname = '/media/somefolder/'; % Parent directory to dataset directory e.g. '/media/somefolder/' if this contains e.g. SparseBeads_B1L1/ directory.
 iterations = 12; % Number of CGLS iterations to run
 
 % Derived parameters
-filename = sprintf('SparseBeads_%s',beadset); % Name of the dataset e.g. 'SparseBeads_B1L1'
+filename = ['SparseBeads_',beadset]; % Name of the dataset e.g. 'SparseBeads_B1L1'
 pathname = fullfile(toppathname,filename); % Name of path where the dataset is stored e.g. '/media/somefolder/SparseBeads_B1L1/'.
 geom_type = '2D'; % Necessary for loading data. Type can only be '2D' for SparseBeads.
 experiment_name = 'CGLS_Demo'; % For naming purposes... Change to any relevant experiment name or code.
